@@ -14,15 +14,17 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RangeSlider
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -80,7 +82,7 @@ fun InteractiveChart(modifier: Modifier) {
             onExpandedChange = { expanded = !expanded },
             modifier = Modifier.padding(bottom = 8.dp)
         ) {
-            TextField(
+            OutlinedTextField(
                 modifier = Modifier
                     .menuAnchor()
                     .fillMaxWidth(),
@@ -89,7 +91,6 @@ fun InteractiveChart(modifier: Modifier) {
                 onValueChange = {},
                 label = { Text("Chart Theme") },
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                colors = ExposedDropdownMenuDefaults.textFieldColors(),
             )
             ExposedDropdownMenu(
                 expanded = expanded,
@@ -107,10 +108,19 @@ fun InteractiveChart(modifier: Modifier) {
             }
         }
 
-        Text(
-            text = "Selected: $selectedItemLabel",
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(bottom = 8.dp)
+        OutlinedTextField(
+            value = selectedItemLabel,
+            onValueChange = {},
+            enabled = false,
+            label = { Text("Selected Item") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                disabledTextColor = MaterialTheme.colorScheme.onSurface,
+                disabledBorderColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         )
         EChartsView(
             option = createLongDataOption(xAxisData, seriesData, 0f, 100f),
@@ -131,9 +141,12 @@ fun InteractiveChart(modifier: Modifier) {
             valueRange = 0f..100f
         )
 
-        Button(onClick = {
-            launcher.launch("chart.png")
-        }) {
+        Button(
+            onClick = {
+                launcher.launch("chart.png")
+            },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
             Text("Save Chart as Image")
         }
     }
