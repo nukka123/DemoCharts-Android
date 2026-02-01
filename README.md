@@ -15,7 +15,7 @@ This demo app introduces solutions for the following challenges when embedding i
 
 *   Android Studio Otter 3 Feature Drop | 2025.2.3
 *   Kotlin 2.3.0
-*   Compose BOM 2024.06.00
+*   Compose BOM 2026.01.01
 *   Android API 36
 *   Min Android API 33
 *   Gradle 9.1.0
