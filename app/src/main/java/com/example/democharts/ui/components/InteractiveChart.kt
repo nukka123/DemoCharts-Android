@@ -57,7 +57,7 @@ fun InteractiveChart(modifier: Modifier) {
     // State for theme selection
     var selectedTheme by remember { mutableStateOf<EChartsTheme?>(null) }
     var expanded by remember { mutableStateOf(false) }
-    val themes = listOf(null) + EChartsTheme.values()
+    val themes = listOf(null) + EChartsTheme.entries
 
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("image/png"),
