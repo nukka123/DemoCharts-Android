@@ -13,11 +13,12 @@ This demo app introduces solutions for the following challenges when embedding i
 
 ## Development Environment
 
-* Android Studio Otter 3 Feature Drop | 2025.2.3
-* Android API 34
-* Min Android API 33
-* Java 11
-* Gradle 9.1.0
+*   Android Studio Otter 3 Feature Drop | 2025.2.3
+*   Kotlin 2.3.0
+*   Compose BOM 2024.06.00
+*   Android API 34
+*   Min Android API 33
+*   Gradle 9.1.0
 
 ## Key Implementations
 
