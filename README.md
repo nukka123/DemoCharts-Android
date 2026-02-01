@@ -18,7 +18,8 @@ This demo app introduces solutions for the following challenges when embedding i
 *   Compose BOM 2026.01.01
 *   Android API 36
 *   Min Android API 33
-*   Gradle 9.1.0
+*   Android Gradle Plugin 9.0.0
+*   Gradle Version 9.1.0
 
 ## Key Implementations
 
